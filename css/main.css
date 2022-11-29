@@ -446,6 +446,11 @@ img.pull-left {
   margin: 1.5rem 3rem 0 0;
 }
 
+#avatar {
+  float: right;
+  margin: 0 0 0;
+}
+
 /* ------------------------------------------------------------------- 
  * ## tables
  * ------------------------------------------------------------------- */
@@ -1670,8 +1675,8 @@ body.menu-is-open {
 }
 
 .header-logo img {
-  width: 155px;
-  height: 36px;
+  width: 60px;
+  height: 60px;
 }
 
 /* ------------------------------------------------------------------- 
@@ -1683,7 +1688,7 @@ body.menu-is-open {
   line-height: 1.875;
   padding: 3.6rem 3rem 3.6rem 6rem;
   height: 100%;
-  width: 50%;
+  width: 34%;
   background: #0C0C0C;
   color: rgba(255, 255, 255, 0.25);
   overflow-y: auto;
@@ -2114,13 +2119,17 @@ body.menu-is-open {
 
 .home-content h1 {
   font-family: "Montserrat", sans-serif;
-  font-weight: 700;
-  font-size: 18rem;
+  font-weight: 300;
+  font-size: 3rem;
   line-height: 1;
   letter-spacing: -.02em;
-  color: #FFFFFF;
+  color: #ffffff88;
   margin-top: 0;
   margin-bottom: 0;
+}
+
+.home-content h2 {
+  font-size:4rem;
 }
 
 .home-content h3 {

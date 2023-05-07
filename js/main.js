@@ -127,7 +127,7 @@
                 e.preventDefault();
                 
                 // Redirect to ltd.html
-                window.open('styles.html', '_blank');
+                window.open('works.html', '_blank');
             });
 
         });

@@ -81,7 +81,7 @@ body {
   font-style: normal;
   font-weight: normal;
   line-height: 1.941;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.6);
   margin: 0;
   padding: 0;
 }
@@ -3063,6 +3063,10 @@ html.no-csstransitions .home-content__main {
 
 .item-folio__thumb img {
   vertical-align: bottom;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
@@ -3931,7 +3935,6 @@ footer a {
   .ss-go-top a::before {
     display: none;
   }
-
 }
 
 @media only screen and (max-width:400px) {
@@ -3950,3 +3953,13 @@ footer a {
 }
 
 /*# sourceMappingURL=main.css.map */
+div.scroll-container {
+  background-color: #333;
+  overflow: auto;
+  white-space: nowrap;
+  padding: 10px;
+}
+
+div.scroll-container img {
+  padding: 10px;
+}

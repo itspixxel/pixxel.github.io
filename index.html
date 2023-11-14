@@ -1,504 +1,563 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html lang="en" class="no-js" >
 <head>
 
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Pixxel | Home</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- mobile specific metas
-    ================================================== -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tyndale</title>
+
+    <script>
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+    </script>
 
     <!-- CSS
     ================================================== -->
-    <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/vendor.css">
-    <link rel="stylesheet" href="css/main.css">
-
-    <!-- script
-    ================================================== -->
-    <script src="js/modernizr.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
 
     <!-- favicons
     ================================================== -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
 
 </head>
 
-
 <body id="top">
-    
+
+
     <!-- preloader
     ================================================== -->
     <div id="preloader">
-        <div id="loader" class="dots-jump">
-            <div></div>
-            <div></div>
-            <div></div>
+        <div id="loader">
         </div>
     </div>
 
-    <!-- header
+
+    <!-- page wrap
     ================================================== -->
-    <header class="s-header">
-
-        <div class="header-logo">
-            <a class="site-logo" href="index.html">
-                <img src="images/logo.png" alt="Homepage">
-            </a>
-        </div> <!-- end header-logo -->
-
-        <nav class="header-nav">
-
-            <a href="#0" class="header-nav__close" title="close"><span>Close</span></a>
-
-            <h3>Navigate to</h3>
-
-            <div class="header-nav__content">
-                
-                <ul class="header-nav__list">
-                    <li><a class="smoothscroll"  href="#home" title="home">Home</a></li>
-                    <li><a class="smoothscroll"  href="#about" title="about">About</a></li>
-                    <li><a class="smoothscroll"  href="#skills" title="skills">Skills</a></li>
-                    <li><a class="smoothscroll"  href="#works" title="works">Works</a></li>
-                    <li><a class="smoothscroll"  href="#contact" title="contact">Contact</a></li>
-                </ul>
-    
-                <!-- <p>Perspiciatis hic praesentium nesciunt. Et neque a dolorum <a href='#0'>voluptatem</a> porro iusto sequi veritatis libero enim. Iusto id suscipit veritatis neque reprehenderit.</p> -->
-    
-                <ul class="header-nav__social">
-                    <li>
-                        <a href="https://www.linkedin.com/in/itspixxel/"><i class="fab fa-linkedin"></i></a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/itspixxel"><i class="fab fa-github"></i></a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com/itsapixxel"><i class="fab fa-twitter"></i></a>
-                    </li>
-                </ul>
-
-            </div> <!-- end header-nav__content -->
-
-        </nav> <!-- end header-nav -->
-
-        <a class="header-menu-toggle" href="#0">
-            <span class="header-menu-icon"></span>
-        </a>
-
-    </header> <!-- end s-header -->
+    <div class="s-pagewrap">
 
 
-    <!-- home
-    ================================================== -->
-    <section id="home" class="s-home page-hero target-section" data-parallax="scroll" data-image-src="images/hero-bg.jpg" data-natural-width=3000 data-natural-height=2000 data-position-y=center>
 
-        <div class="grid-overlay">
-            <div></div>
-        </div>
+        <!-- # site header 
+        ================================================== -->
+        <header class="s-header">
 
-        <div class="home-content">
-
-            <div class="row home-content__main">
-
-                <h2>
-                Pixx's Game Developer Portfolio
-                </h2>
-
-                <hr>
-
-                <h3>
-                A passionate Game Developer and a bit of a geek.
-                </h3>
-                <!--<div class="home-content__video">
-                    <a class="video-link" href="https://player.vimeo.com/video/117310401?color=01aef0&title=0&byline=0&portrait=0" data-lity>
-                        <span class="video-icon"></span>
-                        <span class="video-text">Watch Video</span>
-                    </a>
-                </div>-->
-
-                <div class="home-content__button">
-                    <a href="#about" class="smoothscroll btn btn--primary btn--large">
-                        About me
-                    </a>
-                    <a href="#contact" class="smoothscroll btn btn--large">
-                        Get in touch
+            <div class="s-header__block">
+                <div class="s-header__logo">
+                    <a class="logo" href="index.html">
+                        <img src="images/logo.png" alt="Homepage">
                     </a>
                 </div>
 
-            </div> <!-- end home-content__main -->
+                <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
+            </div> <!-- end s-header__block -->
 
-            <!-- <div class="home-content__scroll">
-                <a href="#about" class="scroll-link smoothscroll">
-                    Scroll
-                </a>
-            </div> -->
+            <div class="row s-header__nav-wrap">
+                <nav class="s-header__nav">
+                    <ul>
+                        <li class="current"><a href="#intro" class="smoothscroll">About Me</a></li>
+                        <li><a href="#services" class="smoothscroll">My Skills</a></li>
+                        <li><a href="#works" class="smoothscroll">Best Works</a></li>
+                        <li><a href="#contact" class="smoothscroll">Get In Touch</a></li>
+                    </ul>
+                </nav>
 
-        </div> 
-        <!-- end home-content -->
+                <ul class="s-header__social">
+                    <li>
+                        <a href="https://www.linkedin.com/in/itspixxel/">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                              </svg>
+                            <span class="screen-reader-text">LinkedIn</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/itspixxel">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                              </svg>
+                            <span class="screen-reader-text">GitHub</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/itsapixxel">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+                                <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/>
+                              </svg>
+                            <span class="screen-reader-text">Twitter</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.artstation.com/itspixxel">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M2 377.4l43 74.3A51.35 51.35 0 0 0 90.9 480h285.4l-59.2-102.6zM501.8 350L335.6 59.3A51.38 51.38 0 0 0 290.2 32h-88.4l257.3 447.6 40.7-70.5c1.9-3.2 21-29.7 2-59.1zM275 304.5l-115.5-200L44 304.5z"/></svg>
+                            <span class="screen-reader-text">Dribbble</span>
+                        </a>
+                    </li>
+                </ul>
+            </div> <!-- end s-header__nav-wrap -->
 
-        <ul class="home-social">
-            <li>
-                <a href="https://www.linkedin.com/in/itspixxel/" target="_blank"><i class="fab fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a>
-            </li>
-            <li>
-                <a href="https://github.com/itspixxel" target="_blank"><i class="fab fa-github" aria-hidden="true"></i><span>GitHub</span></a>
-            </li>
-            <li>
-                <a href="https://twitter.com/itsapixxel" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i><span>Twitter</span></a>
-            </li>
-        </ul> <!-- end home-social -->
-
-    </section> <!-- end s-home -->
+        </header> <!-- end s-header -->
 
 
-    <!-- about
-    ================================================== -->
-    <section id="about" class="s-about target-section">
+        <!-- # intro 
+        ================================================== -->
+        <section id="intro" class="s-intro target-section">
 
-        <div class="row section-header bit-narrow" data-aos="fade-up">
-            <div class="col-full">
-                <img src="images/avatar.png" width="128" id="avatar">
-                <h3 class="subhead">Who I am</h3>
-                <h1 class="display-1">
-                My name is Pixx
-                </h1>
+            <div class="row">
+                <div class="column">
+                    <div class="s-intro__top-block">
+                        <span class="s-intro__bg"></span>
+
+                        <h1 class="s-intro__text">
+                        <image style="float: right" src="images/avatar.png" width="250px"></image>
+                            Pixx's Game Developer Portfolio <br>
+                        </h1>
+
+                        <a href="#services" class="s-intro__scroll-down smoothscroll">
+                            <span>Scroll Down</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:rotate(180deg);-ms-filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2)"><path d="M21 11L6.414 11 11.707 5.707 10.293 4.293 2.586 12 10.293 19.707 11.707 18.293 6.414 13 21 13z"></path></svg>
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div> <!-- end section-header -->
 
-        <div class="row bit-narrow" data-aos="fade-up">
-            <div class="col-full">
-                <p class="lead">
-                    I am an aspiring <em>game developer, programmer, and self-taught artist</em> from Stoke-on-Trent, England. Currently, I am pursuing a <em>BSc. (Hons) degree in Computer Games Development </em> at Staffordshire University, where I excel in <em>Game Mechanics Programming, especially in 3D games</em>. In addition to programming, I have experience in 3D modeling, post-production, time management, problem-solving, and organization, all of which have been honed through personal and student projects.
-                    <br> <br>
-                    My passion lies in <em>Gameplay Mechanics Programming</em>, specifically <em>Procedural Content Generation</em>, and I enjoy leading teams to create small games. I have a particular fondness for horror and simulation games, and I am an avid collector of retro items. In my free time, I like to listen to lo-fi music, draw, and practice 3D modeling with Blender. Occasionally, I stream games on Twitch with my friends.
+            <div class="row row-x-center s-intro__about-wrap">
+                <div class="column s-intro__about">
+                    <h2 class="s-intro__about-title">Hi, I'm Pixx!</h2>
+                    <p>
+                        I am an aspiring <em>game developer, programmer, and self-taught artist</em> from Stoke-on-Trent, England. Currently, I am pursuing a <em>BSc. (Hons) degree in Computer Games Development </em> at Staffordshire University, where I excel in <em>Game Mechanics Programming, especially in 3D games</em>. In addition to programming, I have experience in 3D modeling, post-production, time management, problem-solving, and organization, all of which have been honed through personal and student projects.
+                        <br> <br>
+                        My passion lies in <em>Gameplay Mechanics Programming</em>, specifically <em>Procedural Content Generation</em>, and I enjoy leading teams to create small games. I have a particular fondness for horror and simulation games, and I am an avid collector of retro items. In my free time, I like to listen to lo-fi music, draw, and practice 3D modeling with Blender. Occasionally, I stream games on Twitch with my friends.
+                    </p>
 
-                </p>
-                <!-- <h2>
-                    My Skills:
-                </h2> -->
+                </div>
             </div>
-        </div> <!-- end about-desc -->
 
+            <!--<div class="row about-stats stats block-lg-one-fourth block-md-one-half block-mob-whole" data-animate-block>
+                
+                <div class="column stats__item" data-animate-el>
+                    <div class="stats__count" data-counter=30><span>30</span>+</div>
+                    <h5>Happy Customers</h5>
+                    <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing 
+                    elit, sed do eiusmod tempor incididunt ut labore et dolore 
+                    magna aliqua. Ut enim ad minim veniam.
+                    </p>
+                </div>
+                <div class="column stats__item" data-animate-el>
+                    <div class="stats__count" data-counter=35><span>35</span>+</div>
+                    <h5>Hours Work</h5>
+                    <p>
+                    Eleifend donec pretium vulputate sapien nec sagittis 
+                    aliquam malesuada. Eu scelerisque felis imperdiet proin 
+                    fermentum leo. Cursus turpis massa tincidunt.
+                    </p>
+                </div>
+                <div class="column stats__item" data-animate-el>
+                    <div class="stats__count" data-counter=41><span>41</span>+</div>
+                    <h5>Coffee Drinks</h5>
+                    <p>
+                    Volutpat commodo sed egestas egestas fringilla phasellus 
+                    faucibus scelerisque. Est velit egestas dui id ornare. 
+                    Leo urna molestie at elementum.
+                    </p>
+                </div>
+                <div class="column stats__item" data-animate-el>
+                    <div class="stats__count" data-counter=38><span>38</span>+</div>
+                    <h5>Completed Projects</h5> 
+                    <p>
+                    Nulla pharetra diam sit amet nisl suscipit adipiscing 
+                    bibendum est. Quis risus sed vulputate odio ut. 
+                    Lectus arcu bibendum at varius vel eu facilisis.
+                    </p>
+                </div>
+            -->
+            </div> <!-- end about-stats -->
+        </section> <!-- end s-intro -->
+
+
+        <!-- # services
+        ================================================== -->
+        <section id="services" class="s-services target-section">
+
+            <div class="row section-header has-bottom-sep">
+                <div class="column lg-12">
+                    <h3 class="text-pretitle">MY SKILLS</h3>
+                    <h1 class="text-display-title">
+                        Always learning, trying to broaden my horizons. Here's everything I've picked up on the way... 
+                    </h1>
+                </div>
+            </div> <!-- end section-header -->
+    
+            <div class="row services-list block-lg-one-half block-tab-whole" data-animate-block>
+    
+                <div class="column service-item" data-animate-el>
+                    <div class="service-icon-block">
+                        <span class="service-icon service-icon--product-design"></span>
+                    </div>
+                    <div class="service-text">
+                        <h3 class="h4">Unreal Engine | Unity</h3>
+                        <p>Equipped with the knowledge of Unity and Unreal Engine 5. I can easily navigate the engines and have a good knowledge of the pipelines and APIs. I've made various games with Unity showcased in the Works section and developed tools for Unreal Engine 5.
+                        </p>
+                    </div>
+                </div>
+    
+                <div class="column service-item" data-animate-el>
+                    <div class="service-icon-block">
+                        <span class="service-icon service-icon--branding"></span>
+                    </div>
+                    <div class="service-text">
+                        <h3 class="h4"><strong>C++ | C# | Java</strong></h3>
+                        <p>Experienced in C++ and C#. Good understanding of Object-Oriented-Programming, Garbage Collection, and Memory Management. Also hold some knowledge of Java from developing mods for Minecraft.
+                        </p>
+                    </div>
+                </div>
+    
+                <div class="column service-item" data-animate-el>
+                    <div class="service-icon-block">
+                        <span class="service-icon service-icon--frontend"></span>
+                    </div>
+                    <div class="service-text">
+                        <h3 class="h4"><strong>3D Modelling</strong></h3>
+                        <p>Extensive experience in Blender. Primarily focused on Hard-Surface Modelling and creating 3D Assets for games. Some experience in Sculpting, Animation, and VFX. 
+                        </p>
+                    </div>
+                </div>
+    
+                <div class="column service-item" data-animate-el>
+                    <div class="service-icon-block">
+                        <span class="service-icon service-icon--research"></span>
+                    </div>
+                    <div class="service-text">
+                        <h3 class="h4"><strong>Post-Production</strong></h3>
+                        <p>6+ years of experience with Premiere-Pro from freelance work. Experienced in editing in different styles and genres such as cinematics, documentaries, and product showcases. Keen sense of flow and great knowledge of creating custom FX. Some experience with Compositing, and Post-Processing. 
+                        </p>
+                    </div>
+                </div>
+    
+                <div class="column service-item" data-animate-el>
+                    <div class="service-icon-block">
+                        <span class="service-icon service-icon--illustration"></span>
+                    </div>
+                    <div class="service-text">
+                        <h3 class="h4"><strong>Game Design and Art</strong></h3>
+                        <p>I've taught myself and built up experience in creating Open-world environments, with a good knowledge of real world weathering; wear and tear. Experienced in Stylized UI/UX Design. I also make traditional and digital art.
+                        </p>
+                    </div>
+                </div>
         
-
-    </section> <!-- end s-about -->
-
-
-    <!-- services
-    ================================================== -->
-    <section id='skills' class="s-services target-section darker">
-
-        <div class="row section-header bit-narrow" data-aos="fade-up">
-            <div class="col-full">
-                <h3 class="subhead">My Skills</h3>
-                <h1 class="display-1">
-                Always learning, trying to broaden my horizons. Here's everything I've picked up on the way...
-                </h1>
-            </div>
-        </div> <!-- end section-header -->
-
-        <div class="row bit-narrow services block-1-2 block-tab-full">
-
-            <div class="col-block item-service" data-aos="fade-up">
-                <div class="item-service__icon">
-                    <i class="fas fa-gamepad"></i>
+                <div class="column service-item" data-animate-el>
+                    <div class="service-icon-block">
+                        <span class="service-icon service-icon--ecommerce"></span>
+                    </div>
+                    <div class="service-text">
+                        <h3 class="h4"><strong>Real-World Skills</strong></h3>
+                        <p>By participating in various game jams such as GMTK 2021 and Game-Off 2022, I have built up experience in working with and managing small and large-scale teams, working under deadlines, time management, organizational skills, problem solving skills, and a keen eye for perfection.
+                        </p>
+                    </div>
                 </div>
-                <div class="item-service__text">
-                    <h3 class="item-title">Unreal Engine | Unity</h3>
-                    <p>Equipped with the knowledge of <em>Unity</em> and <em>Unreal Engine 5</em>. I can easily navigate the engines and have a good knowledge of the pipelines. 
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-block item-service" data-aos="fade-up">
-                <div class="item-service__icon">
-                    <i class="fas fa-code"></i>
-                </div>
-                <div class="item-service__text">
-                    <h3 class="item-title">C++ | C# | Java</h3>
-                    <p>Experienced in <em>C++</em> and <em>C#</em>. Good understanding of <em>Object-Oriented-Programming</em>, <em>Garbage Collection</em>, and <em>Memory Management</em>.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-block item-service" data-aos="fade-up">
-                <div class="item-service__icon">
-                    <i class="icon-cube"></i>
-                </div>  
-                <div class="item-service__text">
-                    <h3 class="item-title">3D Modelling</h3>
-                    <p>Extensive experience in <em>Blender</em>. Primarily focused on <em>Hard-Surface Modelling</em> and creating <em>3D Assets for games</em>. Some experience in <em>Sculpting, Animation, and VFX</em>.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-block item-service" data-aos="fade-up">
-                <div class="item-service__icon">
-                    <i class="fas fa-tv"></i>
-                </div>
-                <div class="item-service__text">
-                    <h3 class="item-title">Post-Production</h3>
-                    <p><strong>6+</strong> years of experience with <em>Premiere-Pro</em>. Experienced in editing in different styles and genres such as <em>cinematics, documentaries, and product showcases</em>. Keen sense of flow and great knowledge of creating custom FX. Some experience with <em>Compositing</em>, and <em>Post-Processing</em>.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-block item-service" data-aos="fade-up">
-                <div class="item-service__icon">
-                    <i class="fas fa-cubes"></i>
-                </div>
-                <div class="item-service__text">
-                    <h3 class="item-title">Game Design and Art</h3>
-                    <p>Primarily focused on creating <em>Open-World Environments</em> with a good knowledge of real world weathering; wear and tear. Experienced in <em>Stylized UI/UX Design</em>. Some experience with level and interior design.
-                    </p>
-                </div>
-            </div>
     
-            <div class="col-block item-service" data-aos="fade-up">
-                <div class="item-service__icon"><i class="icon-lego-block"></i></div>
-                <div class="item-service__text">
-                    <h3 class="item-title">Real-World Skills</h3>
-                    <p>I have experience in working with and managing small and large-scale teams, working under deadlines, time management, organizational skills, problem solving skills, and a keen eye for perfection.
+            </div> <!-- end services-list -->
+
+        </section> <!-- end s-services -->
+
+
+        <!-- ## works
+        ================================================== -->
+        <section id="works" class="s-works target-section">
+
+            <div class="row section-header section-header--dark has-bottom-sep">
+                <div class="column lg-12">
+                    <h3 class="text-pretitle">Best Works</h3>
+                    <h1 class="text-display-title">A showcase of my best projects over the years.</h1>
+                </div>
+            </div> <!-- end section-header -->
+
+            <div class="row folio-list block-lg-one-third block-tab-one-half block-stack-on-550 collapse" data-animate-block>
+
+                <div class="column">
+                    <div class="folio-item" data-animate-el>
+                        <div class="folio-item__thumb">
+                            <a class="folio-item__thumb-link" href="https://youtu.be/m3G9_Y62Ebc" title="Crabs Ahoy" data-size="1152x648">
+                                <img src="images/portfolio/CrabsAhoyIcon.png" 
+                                     srcset="images/portfolio/CrabsAhoyIcon.png 1x, images/portfolio/CrabsAhoyIcon.png 2x" alt="">
+                            </a>
+                        </div>
+                        <div class="folio-item__info">
+                            <div class="folio-item__cat">Unity Prototype</div>
+                            <h4 class="folio-item__title">Crabs Ahoy!</h4>
+                        </div>
+                        <a href="https://github.com/itspixxel/Crabs-Ahoy" title="Project Link" class="folio-item__project-link" target="_blank">Project Link</a>
+                        <div class="folio-item__caption">
+                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
+                        </div>
+                    </div>
+                </div> <!-- end column -->
+                <div class="column">
+                    <div class="folio-item" data-animate-el>
+                        <div class="folio-item__thumb">
+                            <a class="folio-item__thumb-link" href="https://youtu.be/qwYHcx8pUR0" title="Tactical Takedown" data-size="1152x648">
+                                <img src="images/portfolio/TacticalTakedownIcon.png" 
+                                     srcset="images/portfolio/TacticalTakedownIcon.png 1x, images/portfolio/TacticalTakedownIcon.png 2x" alt="">
+                            </a>
+                        </div>
+                        <div class="folio-item__info">
+                            <div class="folio-item__cat">Unity Prototype</div>
+                            <h4 class="folio-item__title">Tactical Takedown</h4>
+                        </div>
+                        <a href="https://github.com/itspixxel/Tactical-Takedown" title="Project Link" class="folio-item__project-link">Project Link</a>
+                        <div class="folio-item__caption">
+                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
+                        </div>
+                    </div>
+                </div> <!-- end column -->
+                <div class="column">
+                    <div class="folio-item" data-animate-el>
+                        <div class="folio-item__thumb">
+                            <a class="folio-item__thumb-link" href="https://youtu.be/PxKQlJ5oiPI" Title="SDL Mario Bros." data-size="1152x648">
+                                <img src="images/portfolio/SuperMarioBrosThumb.png" srcset="images/portfolio/SuperMarioBrosThumb.png 1x, images/portfolio/SuperMarioBrosThumb.png 2x" alt="">
+                            </a>
+                        </div>
+                        <div class="folio-item__info">
+                            <div class="folio-item__cat">Game Engine Programming</div>
+                            <h4 class="folio-item__title">SDL Mario Bros.</h4>
+                        </div>
+                        <a href="https://github.com/itspixxel/SDL_Mario_Bros" title="Project Link" class="folio-item__project-link">Project Link</a>
+                        <div class="folio-item__caption">
+                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
+                        </div>
+                    </div>
+                </div>
+                 <!-- end column -->
+                <div class="column">
+                    <div class="folio-item" data-animate-el>
+                        <div class="folio-item__thumb">
+                            <a class="folio-item__thumb-link" href="https://youtu.be/YhM6apxNDoE" title="OpenGL Kitchen Scene" data-size="1152x648">
+                                <img src="images/portfolio/OpenGLKitchenThumb.png" 
+                                     srcset="images/portfolio/OpenGLKitchenThumb.png 1x, images/portfolio/OpenGLKitchenThumb.png 2x" alt="">
+                            </a>
+                        </div>
+                        <div class="folio-item__info">
+                            <div class="folio-item__cat">Graphics Programming</div>
+                            <h4 class="folio-item__title">OpenGL Kitchen Scene</h4>
+                        </div>
+                        <a href="https://github.com/itspixxel/OpenGL_Kitchen" title="Project Link" class="folio-item__project-link">Project Link</a>
+                        <div class="folio-item__caption">
+                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
+                        </div>
+                    </div>
+                </div> <!-- end column -->
+    
+            </div> <!-- folio-list -->
+
+            <!--<div class="row clients-outer" data-animate-block>
+                <div class="column lg-12">
+
+                    <h3 class="text-clients-title" data-animate-el>
+                        We've had the priveledge with working with <br> 
+                        some of the largest and most iconic brands
+                    </h3>
+
+                    <div class="swiper-container clients" data-animate-el>
+                        <div class="swiper-wrapper clients__content">
+                            <a href="#0" title="" class="swiper-slide clients__slide"><img src="images/icons/clients/dropbox.svg" /></a>
+                            <a href="#0" title="" class="swiper-slide clients__slide"><img src="images/icons/clients/atom.svg" /></a>
+                            <a href="#0" title="" class="swiper-slide clients__slide"><img src="images/icons/clients/github.svg" /></a>
+                            <a href="#0" title="" class="swiper-slide clients__slide"><img src="images/icons/clients/redhat.svg" /></a>
+                            <a href="#0" title="" class="swiper-slide clients__slide"><img src="images/icons/clients/medium.svg" /></a>
+                            <a href="#0" title="" class="swiper-slide clients__slide"><img src="images/icons/clients/messenger.svg" /></a>
+                            <a href="#0" title="" class="swiper-slide clients__slide"><img src="images/icons/clients/steam.svg" /></a>
+                            <a href="#0" title="" class="swiper-slide clients__slide"><img src="images/icons/clients/spotify.svg" /></a>
+                        </div>
+
+                        <div class="swiper-pagination"></div>
+                    </div> <!-- end clients -->
+
+                </div> <!-- end column -->
+            </div> <!-- end clients-outer -->
+
+            <div class="video-block">
+                <span class="video-block__bg-left"></span>
+                <span class="video-block__bg-right"></span>
+
+                <div class="video-block__content">
+                    <a href="#" class="video-link" data-video-link="https://www.youtube.com/embed/PL9jvjvNCCg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:"><path d="M7 6L7 18 17 12z"></path></svg>
+                    </a>
+
+                    <p class="video-caption">
+                        Watch Showreel
                     </p>
+                </div>
+            </div> <!-- end video-block -->
+
+            <!--<div class="row testimonials" data-animate-block>
+                <div class="column lg-12">
+    
+                    <div class="swiper-container testimonial-slider" data-animate-el>
+    
+                        <div class="swiper-wrapper">
+
+                            <div class="testimonial-slider__slide swiper-slide">
+                                <div class="testimonial-slider__author">
+                                    <img src="images/avatars/user-02.jpg" alt="Author image" class="testimonial-slider__avatar">
+                                    <cite class="testimonial-slider__cite">
+                                        <strong>Tim Cook</strong>
+                                        <span>CEO, Apple</span>
+                                    </cite>
+                                </div>
+                                <p>
+                                Molestiae incidunt consequatur quis ipsa autem nam sit enim magni. Voluptas tempore rem. 
+                                Explicabo a quaerat sint autem dolore ducimus ut consequatur neque. Nisi dolores quaerat fuga rem nihil nostrum.
+                                Laudantium quia consequatur molestias.
+                                </p>
+                            </div> <!-- end testimonial-slider__slide
+            
+                            <div class="testimonial-slider__slide swiper-slide">
+                                <div class="testimonial-slider__author">
+                                    <img src="images/avatars/user-03.jpg" alt="Author image" class="testimonial-slider__avatar">
+                                    <cite class="testimonial-slider__cite">
+                                        <strong>Sundar Pichai</strong>
+                                        <span>CEO, Google</span>
+                                    </cite>
+                                </div>
+                                <p>
+                                Excepturi nam cupiditate culpa doloremque deleniti repellat. Veniam quos repellat voluptas animi adipisci.
+                                Nisi eaque consequatur. Voluptatem dignissimos ut ducimus accusantium perspiciatis.
+                                Quasi voluptas eius distinctio. Atque eos maxime.
+                                </p>
+                            </div> <!-- end testimonial-slider__slide
+            
+                            <div class="testimonial-slider__slide swiper-slide">
+                                <div class="testimonial-slider__author">
+                                    <img src="images/avatars/user-01.jpg" alt="Author image" class="testimonial-slider__avatar">
+                                    <cite class="testimonial-slider__cite">
+                                        <strong>Satya Nadella</strong>
+                                        <span>CEO, Microsoft</span>
+                                    </cite>
+                                </div>
+                                <p>
+                                Repellat dignissimos libero. Qui sed at corrupti expedita voluptas odit. Nihil ea quia nesciunt. Ducimus aut sed ipsam.  
+                                Autem eaque officia cum exercitationem sunt voluptatum accusamus. Quasi voluptas eius distinctio.
+                                Voluptatem dignissimos ut.
+                                </p>
+                            </div> <!-- end testimonial-slider__slide
+    
+                            <div class="testimonial-slider__slide swiper-slide">
+                                <div class="testimonial-slider__author">
+                                    <img src="images/avatars/user-06.jpg" alt="Author image" class="testimonial-slider__avatar">
+                                    <cite class="testimonial-slider__cite">
+                                        <strong>Jeff Bezos</strong>
+                                        <span>CEO, Amazon</span>
+                                    </cite>
+                                </div>
+                                <p>
+                                Nunc interdum lacus sit amet orci. Vestibulum dapibus nunc ac augue. Fusce vel dui. In ac felis 
+                                quis tortor malesuada pretium. Curabitur vestibulum aliquam leo. Qui sed at corrupti expedita voluptas odit. 
+                                Nihil ea quia nesciunt. Ducimus aut sed ipsam.
+                                </p>
+                            </div> <!-- end testimonial-slider__slide
+        
+                        </div> <!-- end swiper-wrapper
+    
+                        <div class="swiper-pagination"></div>
+    
+                    </div> <!-- end swiper-container
+    
+                </div> <!-- end column
+            </div> <!-- end row testimonials -->
+
+        </section> <!-- end s-works -->
+
+
+        <!-- ## contact
+        ================================================== -->
+        <section id="contact" class="s-contact target-section">
+
+            <div class="row section-header section-header--dark"">
+                <div class="column lg-12">
+                    <h3 class="text-pretitle">Get In Touch</h3>
+                    <h1 class="text-display-title">
+                        Thank you for taking the time to explore my portfolio!
+                    </h1>
                 </div>
             </div>
 
-        </div> <!-- end services -->
-
-    </section> <!-- end s-services -->
-
-
-    <!-- works
-    ================================================== -->
-    <section id="works" class="s-works target-section">
-
-        <div class="row section-header has-bottom-sep narrow target-section" data-aos="fade-up">
-            <div class="col-full">
-                <h3 class="subhead">My Works</h3>
-                <h1 class="display-1">
-                A showcase of my best projects over the years
-                </h1>
-            </div>
-        </div> <!-- end section-header -->
-
-        <div class="row masonry-wrap">
-
-            <div class="masonry">
-                
-                <div class="masonry__brick" data-aos="fade-up">
-                    <div class="item-folio">
-                        <div class="item-folio__caption">
-                            <p>A 2D Top Down Stick Shooter made with C++ using the S2D library.</p>
-                        </div>
-                            
-                        <div class="item-folio__thumb">
-                            <a href="images\gallery\fulls\LootTheDungeonFull.png" class="thumb-link" title="Loot The Dungeon" data-size="1077x1010">
-                                <img src="images\gallery\fulls\Pikachu_v01_thumb.png" 
-                                     srcset="images\gallery\fulls\LootTheDungeon.png 1x, images\gallery\fulls\LootTheDungeonFull.png 2x" alt="">
-                            </a>
-                        </div>
-
-                        <div class="item-folio__text">
-                            <h3 class="item-folio__title">
-                                Loot The Dungeon
-                            </h3>
-                            <p class="item-folio__cat">
-                                A 2D Top Down Stick Shooter made with C++ using the S2D library.
-                            </p>
-                        </div>
+            <div class="row row-x-center text-center s-contact__content">
+                <div class="column lg-12">
+                    <p class="lead">
+                        I am currently actively seeking placement opportunities to enhance my skills and contribute to a dynamic team. If you believe my background and skills align with your organization's needs, I would love to hear from you.
+                    </p>
+                    <div class="btn-wrap">
+                        <a href="mailto:itsapixxel@gmail.com" class="btn btn--primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:"><path d="M20,4H4C2.897,4,2,4.897,2,6v12c0,1.103,0.897,2,2,2h16c1.103,0,2-0.897,2-2V6C22,4.897,21.103,4,20,4z M20,6v0.511 l-8,6.223L4,6.512V6H20z M4,18V9.044l7.386,5.745C11.566,14.93,11.783,15,12,15s0.434-0.07,0.614-0.211L20,9.044L20.002,18H4z"></path></svg>
+                            Write An Email
+                        </a>
                     </div>
-                </div> <!-- end masonry__brick -->
-
-                <div class="masonry__brick" data-aos="fade-up">
-                    <div class="item-folio">
-                            
-                        <div class="item-folio__caption">
-                            <p>A 3D scene made using OpenGL 2.0 and C++ to explore graphical pipelines.</p>
-                        </div>
-                            
-                        <div class="item-folio__thumb">
-                            <a href="images/gallery/fulls/OpenGLScene.png" class="thumb-link" title="The Kitchen" data-size="1550x1536">
-                                <img src="images/gallery/fulls/OpenGLScene.png" 
-                                     srcset="images/gallery/fulls/OpenGLScene.png 1x, images/gallery/fulls/OpenGLScene.png 2x" alt="">
-                            </a>
-                        </div>
-
-                        <div class="item-folio__text">
-                            <h3 class="item-folio__title">
-                                The Kitchen
-                            </h3>
-                            <p class="item-folio__cat">
-                                A 3D scene made using OpenGL 2.0 and C++ to explore graphical pipelines.
-                            </p>
-                        </div>
-
-                    </div>
-                </div> <!-- end masonry__brick -->
-    
-                <div class="masonry__brick" data-aos="fade-up">
-                    <div class="item-folio">
-                            
-                        <div class="item-folio__caption">
-                            <p>A unique 2D platformer made with Unity and C#.</p>
-                        </div>
-                            
-                        <div class="item-folio__thumb">
-                            <a href="images/gallery/thumbs/CrabsAhoyThumb.png" class="thumb-link" title="Crabs Ahoy!" data-size="874x636">
-                                <img src="images/gallery/thumbs/CrabsAhoyThumb.png" 
-                                     srcset="images/gallery/thumbs/CrabsAhoyThumb.png 1x, images/gallery/thumbs/CrabsAhoyThumb.png 2x" alt="">
-                            </a>
-                        </div>
-
-                        <div class="item-folio__text">
-                            <h3 class="item-folio__title">
-                                Crabs Ahoy!
-                            </h3>
-                            <p class="item-folio__cat">
-                                A unique 2D platformer made with Unity and C#.
-                            </p>
-                        </div>
-
-                    </div>
-                </div> <!-- end masonry__brick -->
-                
-                <div class="masonry__brick" data-aos="fade-up">
-                    <div class="item-folio">
-                            
-                        <div class="item-folio__caption">
-                            <p>A Mario Bros. clone made with C++ and the SDL library.</p>
-                        </div>
-                            
-                        <div class="item-folio__thumb">
-                            <a href="images/gallery/thumbs/MarioBros.png" class="thumb-link" title="Mario Bros." data-size="1010x816">
-                                <img src="images/gallery/thumbs/MarioBros.png" 
-                                     srcset="images/gallery/thumbs/MarioBros.png 1x, images/gallery/thumbs/MarioBros.png 2x" alt="">
-                            </a>
-                        </div>
-
-                        <div class="item-folio__text">
-                            <h3 class="item-folio__title">
-                                Mario Bros.
-                            </h3>
-                            <p class="item-folio__cat">
-                                A Mario Bros. clone made with C++ and the SDL library.
-                            </p>
-                        </div>
-
-                    </div>
-                </div> <!-- end masonry__brick -->
-
-            </div> <!-- end masonry -->
-
-        </div> <!-- end masonry-wrap -->
-
-    </section> <!-- end s-works -->
-
-    <!-- testimonies
-    ==================================================
-    <section class="s-testimonials">
-
-        <div class="testimonials__icon" data-aos="fade-up"></div>
-
-        <div class="row testimonials narrow">
-
-            <div class="col-full testimonials__slider" data-aos="fade-up">
-
-                <div class="testimonials__slide">
-                    <p>Qui ipsam temporibus quisquam vel. Maiores eos cumque distinctio nam accusantium ipsum. 
-                    Laudantium quia consequatur molestias delectus culpa facere hic dolores aperiam. Accusantium quos qui praesentium corpori.</p>
-                    <div class="testimonials__author">
-                        Tim Cook
-                        <span>CEO, Apple</span>
-                    </div>
-                </div> <!-- end testimonials__slide
-
-                <div class="testimonials__slide">
-                    <p>Excepturi nam cupiditate culpa doloremque deleniti repellat. Veniam quos repellat voluptas animi adipisci.
-                    Nisi eaque consequatur. Quasi voluptas eius distinctio. Atque eos maxime. Qui ipsam temporibus quisquam vel.</p>
-                    <div class="testimonials__author">
-                        Sundar Pichai
-                        <span>CEO, Google</span>
-                    </div>
-                </div> <!-- end testimonials__slide
-
-                <div class="testimonials__slide">
-                    <p>Repellat dignissimos libero. Qui sed at corrupti expedita voluptas odit. Nihil ea quia nesciunt. Ducimus aut sed ipsam.  
-                    Autem eaque officia cum exercitationem sunt voluptatum accusamus. Quasi voluptas eius distinctio.</p>
-                    <div class="testimonials__author">
-                        Satya Nadella
-                        <span>CEO, Microsoft</span>
-                    </div>
-                </div> <!-- end testimonials__slide
-                
-            </div> <!-- end testimonials__slider
-
-        </div> <!-- end testimonials
-
-    </section> <!-- end s-testimonials -->
-
-    <!-- contact
-    ================================================== -->
-    <section id="contact" class="s-contact target-section">
-
-            <div class="grid-overlay">
-                <div></div>
+                </div>
             </div>
 
-        <div class="row section-header narrow" data-aos="fade-up">
-            <div class="col-full">
-                <h3 class="subhead">Get In Touch</h3>
-                <h1 class="display-1">Feel free to contact me for any <br> project idea or collaboration</h1>
-            </div>
-        </div> <!-- end section-header -->
+            <!--<footer class="s-footer">
 
-        <div class="row contact-main" data-aos="fade-up">
-            <div class="col-full">
-                <p class="contact-email">
-                    <a href="mailto:#0">2102sarthak@gmail.com</a>
-                </p>
-                <p class="contact-address">
-                Staffordshire University, College Rd, Stoke-on-Trent<br>
-                </p>
-                <p class="contact-numbers">
-                +44 0123 456789 &nbsp; | &nbsp; +44 7436 990793
-                </p>
+                <div class="row s-footer__top">
+                    <div class="column lg-5 md-8 stack-on-700 s-footer__block contact-address">
+                        <h4 class="h6">Where to Find Us</h4>
+        
+                        <p>
+                        1600 Amphitheatre Parkway <br>
+                        Mountain View, California <br>
+                        94043  US
+                        </p>
+                    </div>
 
-                <ul class="contact-social">
-                    <li>
-                        <a href="https://www.linkedin.com/in/itspixxel/"><i class="fab fa-linkedin"></i></a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/itspixxel"><i class="fab fa-github"></i></a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com/itsapixxel"><i class="fab fa-twitter"></i></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+                    <div class="column lg-3 md-4 stack-on-700 s-footer__block contact-social">
+                        <h4 class="h6">Follow Us</h4>
+        
+                        <ul class="contact-list">
+                            <li><a href="#0">Facebook</a></li>
+                            <li><a href="#0">Twitter</a></li>
+                            <li><a href="#0">Instagram</a></li>
+                        </ul>
+                    </div>
+        
+                    <div class="column lg-3 md-12 s-footer__block contact-number">
+                        <h4 class="h6">Contact Us</h4>
+        
+                        <ul class="contact-list">
+                            <li><a href="mailto:#0">info@tyndale.com</a></li>
+                            <li><a href="tel:197-543-2345">+197 543 2345</a></li>
+                            <li><a href="tel:197-123-9876">+197 123 9876</a></li>
+                        </ul>
+                    </div>
+                </div> <!-- end s-footer__top -->
 
-    </section> <!-- end s-contact -->
+                <!--<div class="row s-footer__bottom">
+                    <div class="column ss-copyright">
+                        <span>© Copyright Tyndale 2021</span> 
+                        <span>Design by <a href="https://www.styleshout.com/">StyleShout</a></span>
+                    </div>-->
 
+                    <div class="ss-go-top">
+                        <a class="smoothscroll" title="Back to Top" href="#top">
+                            <span class="ss-go-top__icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:rotate(90deg);-ms-filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=1)"><path d="M6 4H18V6H6zM11 14L11 20 13 20 13 14 18 14 12 8 6 14z"></path></svg>
+                            </span>
+                            <span class="ss-go-top__text">Back to Top</span>
+                        </a>
+                    </div>
+                </div> <!-- end s-footer__top -->
 
-    <!-- footer
-    ================================================== -->
-    <footer>
-        <!--<div class="row">
-            <div class="col-full ss-copyright">
-                <span>Design by <a href="https://www.styleshout.com/">Styleshout</a></span>
-            </div>
-        </div> -->
+            </footer>
 
-        <div class="ss-go-top">
-            <a class="smoothscroll" title="Back to Top" href="#top">Back to Top</a>
-        </div>
-    </footer>
+        </section> <!-- end s-contact -->
+
+    </div> <!-- end -s-pagewrap -->
 
 
     <!-- photoswipe background
@@ -543,8 +602,8 @@
 
     <!-- Java Script
     ================================================== -->
-    <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
 
 </body>
+</html>

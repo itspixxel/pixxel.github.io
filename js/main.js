@@ -1,222 +1,455 @@
 /* ===================================================================
- * Sublime - Main JS
+ * Tyndale 1.0.0 - Main JS
  *
  * ------------------------------------------------------------------- */
 
-(function($) {
+(function(html) {
 
-    "use strict";
-    
-    var cfg = {
-        scrollDuration : 800, // smoothscroll duration
-        mailChimpURL   : 'https://facebook.us8.list-manage.com/subscribe/post?u=cdb7b577e41181934ed6a6a44&amp;id=e6957d85dc'   // mailchimp url
-    },
-
-    $WIN = $(window);
-
-    // Add the User Agent to the <html>
-    // will be used for IE10 detection (Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0))
-    var doc = document.documentElement;
-    doc.setAttribute('data-useragent', navigator.userAgent);
-
-    // svg fallback
-    if (!Modernizr.svg) {
-        $(".header-logo img").attr("src", "images/logo.png");
-    }
+    'use strict';
 
 
-   /* Preloader
+   /* animations
     * -------------------------------------------------- */
-    var ssPreloader = function() {
+    const tl = anime.timeline( {
+        easing: 'easeInOutCubic',
+        duration: 800,
+        autoplay: false
+    })
+    .add({
+        targets: '#loader',
+        opacity: 0,
+        duration: 1000,
+        begin: function(anim) {
+            window.scrollTo(0, 0);
+        }
+    })
+    .add({
+        targets: '#preloader',
+        opacity: 0,
+        complete: function(anim) {
+            document.querySelector("#preloader").style.visibility = "hidden";
+            document.querySelector("#preloader").style.display = "none";
+        }
+    })
+    .add({
+        targets: '.s-header',
+        translateY: [-100, 0],
+        opacity: [0, 1]
+    }, '-=200')
+    .add({
+        targets: ['.s-intro__text', '.s-intro__about'],
+        translateY: [100, 0],
+        opacity: [0, 1],
+        delay: anime.stagger(400)
+    })
+    .add({
+        targets: '.s-intro__bg',
+        opacity: [0, 1],
+        duration: 1000,
+    })
+    .add({
+        targets: ['.s-intro__scroll-down'],
+        opacity: [0, 1],
+        duration: 400
+    });
+
+
+   /* preloader
+    * -------------------------------------------------- */
+    const ssPreloader = function() {
+
+        const preloader = document.querySelector('#preloader');
+        if (!preloader) return;
+
+        html.classList.add('ss-preload');
         
-        $("html").addClass('ss-preload');
-
-        $WIN.on('load', function() {
-
-            //force page scroll position to top at page refresh
-            $('html, body').animate({ scrollTop: 0 }, 'normal');
-
-            // will first fade out the loading animation 
-            $("#loader").fadeOut("slow", function() {
-                // will fade out the whole DIV that covers the website.
-                $("#preloader").delay(300).fadeOut("slow");
-            }); 
-            
-            // for hero content animations 
-            $("html").removeClass('ss-preload');
-            $("html").addClass('ss-loaded');
-        
-        });
-    };
-
-
-   /* Menu on Scrolldown
-    * ------------------------------------------------------ */
-    var ssMenuOnScrolldown = function() {
-        
-        var menuTrigger = $('.header-menu-toggle');
-
-        $WIN.on('scroll', function() {
-
-            if ($WIN.scrollTop() > 150) {
-                menuTrigger.addClass('opaque');
-            }
-            else {
-                menuTrigger.removeClass('opaque');
-            }
-
-        });
-    };
-
-
-   /* OffCanvas Menu
-    * ------------------------------------------------------ */
-    var ssOffCanvas = function() {
-
-        var menuTrigger     = $('.header-menu-toggle'),
-            nav             = $('.header-nav'),
-            closeButton     = nav.find('.header-nav__close'),
-            siteBody        = $('body'),
-            mainContents    = $('section, footer');
-
-        // open-close menu by clicking on the menu icon
-        menuTrigger.on('click', function(e){
-            e.preventDefault();
-            siteBody.toggleClass('menu-is-open');
+        window.addEventListener('load', function() {
+            html.classList.remove('ss-preload');
+            html.classList.add('ss-loaded');
+            tl.play();
         });
 
-        // close menu by clicking the close button
-        closeButton.on('click', function(e){
-            e.preventDefault();
-            menuTrigger.trigger('click');
-        });
-
-        // close menu clicking outside the menu itself
-        siteBody.on('click', function(e){
-            if( !$(e.target).is('.header-nav, .header-nav__content, .header-menu-toggle, .header-menu-toggle span') ) {
-                siteBody.removeClass('menu-is-open');
-            }
-        });
-
-    };
+    }; // end ssPreloader
 
 
-   /* Masonry
+   /* mobile menu
     * ---------------------------------------------------- */ 
-    var ssMasonryFolio = function () {
-        
-        var containerBricks = $('.masonry');
+    const ssMobileMenu = function() {
 
-        containerBricks.imagesLoaded(function () {
-            containerBricks.masonry({
-                itemSelector: '.masonry__brick',
-                resize: true
+        const toggleButton = document.querySelector('.s-header__menu-toggle');
+        const mainNavWrap = document.querySelector('.s-header__nav-wrap');
+        const siteBody = document.querySelector('body');
+
+        if (!(toggleButton && mainNavWrap)) return;
+
+        toggleButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            toggleButton.classList.toggle('is-clicked');
+            siteBody.classList.toggle('menu-is-open');
+        });
+
+        mainNavWrap.querySelectorAll('.s-header__nav a').forEach(function(link) {
+
+            link.addEventListener("click", function(event) {
+
+                // at 900px and below
+                if (window.matchMedia('(max-width: 900px)').matches) {
+                    toggleButton.classList.toggle('is-clicked');
+                    siteBody.classList.toggle('menu-is-open');
+                }
             });
         });
-    };
+
+        window.addEventListener('resize', function() {
+
+            // above 900px
+            if (window.matchMedia('(min-width: 901px)').matches) {
+                if (siteBody.classList.contains('menu-is-open')) siteBody.classList.remove('menu-is-open');
+                if (toggleButton.classList.contains('is-clicked')) toggleButton.classList.remove('is-clicked');
+            }
+        });
+
+    }; // end ssMobileMenu
+
+
+   /* highlight active menu link on pagescroll
+    * ------------------------------------------------------ */
+    const ssScrollSpy = function() {
+
+        const sections = document.querySelectorAll('.target-section');
+
+        // Add an event listener listening for scroll
+        window.addEventListener('scroll', navHighlight);
+
+        function navHighlight() {
+        
+            // Get current scroll position
+            let scrollY = window.pageYOffset;
+        
+            // Loop through sections to get height(including padding and border), 
+            // top and ID values for each
+            sections.forEach(function(current) {
+                const sectionHeight = current.offsetHeight;
+                const sectionTop = current.offsetTop - 50;
+                const sectionId = current.getAttribute('id');
+            
+               /* If our current scroll position enters the space where current section 
+                * on screen is, add .current class to parent element(li) of the thecorresponding 
+                * navigation link, else remove it. To know which link is active, we use 
+                * sectionId variable we are getting while looping through sections as 
+                * an selector
+                */
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    document.querySelector('.s-header__nav a[href*=' + sectionId + ']').parentNode.classList.add('current');
+                } else {
+                    document.querySelector('.s-header__nav a[href*=' + sectionId + ']').parentNode.classList.remove('current');
+                }
+            });
+        }
+
+    }; // end ssScrollSpy
+
+
+   /* animate elements if in viewport
+    * ------------------------------------------------------ */
+    const ssAnimateOnScroll = function() {
+
+        const blocks = document.querySelectorAll('[data-animate-block]');
+
+        window.addEventListener('scroll', animateOnScroll);
+
+        function animateOnScroll() {
+
+            let scrollY = window.pageYOffset;
+
+            blocks.forEach(function(current) {
+
+                const viewportHeight = window.innerHeight;
+                const triggerTop = (current.offsetTop + (viewportHeight * .2)) - viewportHeight;
+                const blockHeight = current.offsetHeight;
+                const blockSpace = triggerTop + blockHeight;
+                const inView = scrollY > triggerTop && scrollY <= blockSpace;
+                const isAnimated = current.classList.contains('ss-animated');
+
+                if (inView && (!isAnimated)) {
+
+                    anime({
+                        targets: current.querySelectorAll('[data-animate-el]'),
+                        opacity: [0, 1],
+                        translateY: [100, 0],
+                        delay: anime.stagger(200, {start: 200}),
+                        duration: 800,
+                        easing: 'easeInOutCubic',
+                        begin: function(anim) {
+                            current.classList.add('ss-animated');
+                        }
+                    });
+
+                    if (current.classList.contains('about-stats')) {
+
+                        let counters = current.querySelectorAll('[data-animate-el] .stats__count');
+
+                        counters.forEach(function(counter, i) {
+
+                            let val = +counter.dataset.counter;
+                            let valSpan = counter.querySelectorAll('span')[0];
+                            
+                            valSpan.innerText = '0';
+
+                            setTimeout(function() {
+                                anime({
+                                    targets: valSpan,
+                                    innerText: [0, val],
+                                    easing: 'linear',
+                                    round: 1,
+                                    duration: 2000
+                                });
+                            }, i * 200);
+                            
+                        });
+                    }
+                }
+            });
+        }
+
+    }; // end ssAnimateOnScroll
+
+
+   /* swiper
+    * ------------------------------------------------------ */ 
+    const ssSwiper = function() {
+
+        const clientsSwiper = new Swiper('.clients', {
+
+            slidesPerView: 4,
+            spaceBetween: 4,
+            slideClass: 'clients__slide',
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                // when window width is > 400px
+                401: {
+                    spaceBetween: 8
+                },
+                // when window width is > 900px
+                901: {
+                    slidesPerView: 5,
+                    spaceBetween: 10
+                },
+                // when window width is > 1200px
+                1201: {
+                    slidesPerView: 6,
+                    spaceBetween: 10
+                }
+            }
+        });
+
+        const testimonialsSwiper = new Swiper('.testimonial-slider', {
+
+            slidesPerView: 1,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                // when window width is > 400px
+                401: {
+                    slidesPerView: 1,
+                    spaceBetween: 20
+                },
+                // when window width is > 800px
+                801: {
+                    slidesPerView: 2,
+                    spaceBetween: 32
+                },
+                // when window width is > 1200px
+                1201: {
+                    slidesPerView: 2,
+                    spaceBetween: 80
+                }
+            }
+         });
+
+    }; // end ssSwiper
+
 
     /* photoswipe
     * ----------------------------------------------------- */
-    var ssPhotoswipe = function() {
-        var $folioItems = $('.item-folio');
-
-        // bind click event
-        $folioItems.each(function() {
-
-            $(this).on('click', function(e) {
-                e.preventDefault();
-                
-                // Redirect to ltd.html
-                window.open('works.html', '_blank');
+    const ssPhotoswipe = function() {
+        const items = [];
+        const pswp = document.querySelectorAll('.pswp')[0];
+        const folioItems = document.querySelectorAll('.folio-item');
+    
+        if (!(pswp && folioItems)) return;
+    
+        folioItems.forEach(function(folioItem, i) {
+            let thumbLink = folioItem.querySelector('.folio-item__thumb-link');
+            let title = folioItem.querySelector('.folio-item__title');
+            let caption = folioItem.querySelector('.folio-item__caption');
+            let titleText = '<h4>' + title.innerHTML + '</h4>';
+            let captionText = caption ? caption.innerHTML : '';
+            let href = thumbLink.getAttribute('href');
+            let size = thumbLink.dataset.size.split('x'); 
+            let width = size[0];
+            let height = size[1];
+    
+            // Check if the href is a YouTube video URL
+            let isYouTubeVideo = href.includes('youtube.com') || href.includes('youtu.be');
+    
+            let item = {
+                html: isYouTubeVideo ? getYoutubeEmbedHtml(href, width, height) : '<img src="' + href + '" alt="">',
+                title: titleText.trim() + captionText.trim(),
+                w: width,
+                h: height
+            };
+    
+            items.push(item);
+    
+            // bind click event
+            thumbLink.addEventListener('click', function(event) {
+                event.preventDefault();
+    
+                let options = {
+                    index: i,
+                    showHideOpacity: true
+                };
+    
+                // initialize PhotoSwipe
+                let lightBox = new PhotoSwipe(pswp, PhotoSwipeUI_Default, items, options);
+                lightBox.init();
             });
-
         });
-    };
 
-   /* slick slider
+        // Function to convert YouTube video URL to centered embed HTML
+        function getYoutubeEmbedHtml(url, width, height) {
+            let videoId;
+
+            if (url.includes('youtube.com')) {
+                videoId = url.split('v=')[1];
+            } else if (url.includes('youtu.be')) {
+                videoId = url.split('/').pop();
+            }
+
+            return '<div class="pswp__video" style="display: flex; align-items: center; justify-content: center; height: 100vh;">' +
+                    '<div class="pswp__video-box" style="width:' + width + 'px; height:' + height + 'px;">' +
+                        '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/' + videoId + '?autoplay=0" frameborder="0" allowfullscreen></iframe>' +
+                    '</div>' +
+                '</div>';
+        }
+    };     // end ssPhotoSwipe
+
+
+   /* video Lightbox
     * ------------------------------------------------------ */
-    var ssSlickSlider = function() {
-        
-        $('.testimonials__slider').slick({
-            arrows: false,
-            dots: true,
-            infinite: true,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            pauseOnFocus: false,
-            autoplaySpeed: 1500
+    const ssVideoLightbox = function() {
+    const videoLinks = document.querySelectorAll('.video-link');
+
+    if (!videoLinks || videoLinks.length === 0) return;
+
+    videoLinks.forEach(function(videoLink) {
+        videoLink.addEventListener('click', function(event) {
+            event.preventDefault();
+
+            const vLink = this.getAttribute('data-video-link'); // Assuming you have a data attribute for the video link
+
+            if (!vLink) {
+                console.error('Video link not found.');
+                return;
+            }
+
+            const iframe = `<iframe src='${vLink}' frameborder='0' allowfullscreen></iframe>`;
+
+            const instance = basicLightbox.create(iframe);
+            instance.show();
         });
-    };
+    });
+};
+
+ // end ssVideoLightbox
 
 
-   /* Smooth Scrolling
+   /* alert boxes
     * ------------------------------------------------------ */
-    var ssSmoothScroll = function() {
-        
-        $('.smoothscroll').on('click', function (e) {
-            var target = this.hash,
-            $target    = $(target);
-            
-                e.preventDefault();
-                e.stopPropagation();
+    const ssAlertBoxes = function() {
 
-            $('html, body').stop().animate({
-                'scrollTop': $target.offset().top
-            }, cfg.scrollDuration, 'swing').promise().done(function () {
+        const boxes = document.querySelectorAll('.alert-box');
+  
+        boxes.forEach(function(box){
 
-                // check if menu is open
-                if ($('body').hasClass('menu-is-open')) {
-                    $('.header-menu-toggle').trigger('click');
+            box.addEventListener('click', function(event) {
+                if (event.target.matches('.alert-box__close')) {
+                    event.stopPropagation();
+                    event.target.parentElement.classList.add('hideit');
+
+                    setTimeout(function(){
+                        box.style.display = 'none';
+                    }, 500)
                 }
-
-                window.location.hash = target;
             });
-        });
+        })
 
-    };
+    }; // end ssAlertBoxes
 
 
-   /* Alert Boxes
+   /* smoothscroll
     * ------------------------------------------------------ */
-    var ssAlertBoxes = function() {
+    const ssMoveTo = function(){
 
-        $('.alert-box').on('click', '.alert-box__close', function() {
-            $(this).parent().fadeOut(500);
-        }); 
+        const easeFunctions = {
+            easeInQuad: function (t, b, c, d) {
+                t /= d;
+                return c * t * t + b;
+            },
+            easeOutQuad: function (t, b, c, d) {
+                t /= d;
+                return -c * t* (t - 2) + b;
+            },
+            easeInOutQuad: function (t, b, c, d) {
+                t /= d/2;
+                if (t < 1) return c/2*t*t + b;
+                t--;
+                return -c/2 * (t*(t-2) - 1) + b;
+            },
+            easeInOutCubic: function (t, b, c, d) {
+                t /= d/2;
+                if (t < 1) return c/2*t*t*t + b;
+                t -= 2;
+                return c/2*(t*t*t + 2) + b;
+            }
+        }
 
-    };
-
-
-   /* Animate On Scroll
-    * ------------------------------------------------------ */
-    var ssAOS = function() {
+        const triggers = document.querySelectorAll('.smoothscroll');
         
-        AOS.init( {
-            offset: 200,
-            duration: 600,
-            easing: 'ease-in-sine',
-            delay: 300,
-            once: true,
-            disable: 'mobile'
+        const moveTo = new MoveTo({
+            tolerance: 0,
+            duration: 1200,
+            easing: 'easeInOutCubic',
+            container: window
+        }, easeFunctions);
+
+        triggers.forEach(function(trigger) {
+            moveTo.registerTrigger(trigger);
         });
 
-    };
+    }; // end ssMoveTo
 
 
    /* Initialize
     * ------------------------------------------------------ */
-    (function clInit() {
+    (function ssInit() {
 
         ssPreloader();
-        ssMenuOnScrolldown();
-        ssOffCanvas();
-        ssMasonryFolio();
+        ssMobileMenu();
+        ssScrollSpy();
+        ssAnimateOnScroll();
+        ssSwiper();
         ssPhotoswipe();
-        ssSlickSlider();
-        ssSmoothScroll();
+        ssVideoLightbox();
         ssAlertBoxes();
-        ssAOS();
+        ssMoveTo();
 
     })();
 
-})(jQuery);
+})(document.documentElement);

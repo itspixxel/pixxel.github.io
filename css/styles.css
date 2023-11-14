@@ -3836,6 +3836,19 @@ img.u-pull-left {
     transform  : translateX(0);
 }
 
+.centered-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.centered-image img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
 /* ------------------------------------------------------------------- 
  * ## clients
  * ------------------------------------------------------------------- */

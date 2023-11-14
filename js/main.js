@@ -299,7 +299,7 @@
             let isYouTubeVideo = href.includes('youtube.com') || href.includes('youtu.be');
     
             let item = {
-                html: isYouTubeVideo ? getYoutubeEmbedHtml(href, width, height) : '<img src="' + href + '" alt="">',
+                html: isYouTubeVideo ? getYoutubeEmbedHtml(href, width, height) : '<div class="centered-image"><img src="' + href + '" alt="" width="1280px" height="720px"></div>',
                 title: titleText.trim() + captionText.trim(),
                 w: width,
                 h: height
@@ -321,24 +321,24 @@
                 lightBox.init();
             });
         });
-
+    
         // Function to convert YouTube video URL to centered embed HTML
         function getYoutubeEmbedHtml(url, width, height) {
             let videoId;
-
+    
             if (url.includes('youtube.com')) {
                 videoId = url.split('v=')[1];
             } else if (url.includes('youtu.be')) {
                 videoId = url.split('/').pop();
             }
-
+    
             return '<div class="pswp__video" style="display: flex; align-items: center; justify-content: center; height: 100vh;">' +
-                    '<div class="pswp__video-box" style="width:' + width + 'px; height:' + height + 'px;">' +
-                        '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/' + videoId + '?autoplay=0" frameborder="0" allowfullscreen></iframe>' +
-                    '</div>' +
+                '<div class="pswp__video-box" style="width:' + width + 'px; height:' + height + 'px;">' +
+                '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/' + videoId + '?autoplay=0" frameborder="0" allowfullscreen></iframe>' +
+                '</div>' +
                 '</div>';
         }
-    };     // end ssPhotoSwipe
+    };         // end ssPhotoSwipe
 
 
    /* video Lightbox
